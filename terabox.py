@@ -215,7 +215,7 @@ async def handle_message(client: Client, message: Message):
         f"📥 ᴜsᴇʀ ʟɪɴᴋ: tg://user?id={user_id}\n\n"
         "[ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴊᴇᴛ-ᴍɪʀʀᴏʀ ❤️🚀]"
     )
-sticker_message = await message.reply_sticker("CAACAgIAAxkBAAEZdwRmJhCNfFRnXwR_lVKU1L9F3qzbtAAC4gUAAj-VzApzZV-v3phk4DQE")
+
     last_update_time = time.time()
     UPDATE_INTERVAL = 15
 
@@ -232,6 +232,7 @@ sticker_message = await message.reply_sticker("CAACAgIAAxkBAAEZdwRmJhCNfFRnXwR_l
                 await update_status(message, text)
             except Exception as e:
                 logger.error(f"Error updating status: {e}")
+                sticker_message = await message.reply_sticker("CAACAgIAAxkBAAEZdwRmJhCNfFRnXwR_lVKU1L9F3qzbtAAC4gUAAj-VzApzZV-v3phk4DQE")
 
     async def upload_progress(current, total):
         progress = (current / total) * 100
